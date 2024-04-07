@@ -1105,3 +1105,14 @@ fieldset legend {
   clip: rect(0 0 0 0);
   word-wrap: normal !important;
 }
+
+.skiplink {
+  position: absolute;
+  top: -200px;
+  left: 2px;
+  transition: top 0.2s;
+}
+
+.skiplink:focus {
+  top: 20px;
+}
