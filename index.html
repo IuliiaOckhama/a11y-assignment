@@ -186,7 +186,6 @@
 									<button class="btn btn_secondary btn_hollow" type="submit" name="add">Add to cart</button>
 									<button class="btn btn_primary" type="submit" name="buy now">Buy it now</button>
 								</form>
-
 							</div>
 							<section class="product-card__description" aria-label="Product description">
 								<p>A unisex basic garment with a loose fit. Light and comfortable to your skin.</p>
@@ -398,8 +397,8 @@
 						</section>
 						<section class="footer__col">
 							<h2 class="footer__heading">Company</h2>
-							<nav aria-label="Footer primary">
-								<ul class="footer__list">
+							<nav>
+								<ul class="footer__list" aria-label="Company links">
 									<li class="footer__list-item">
 										<a class="footer__list-link" href="#">Woman</a>
 									</li>
@@ -420,8 +419,8 @@
 						</section>
 						<section class="footer__col">
 							<h2 class="footer__heading">Useful links</h2>
-							<div>
-								<ul class="footer__list">
+							<nav>
+								<ul class="footer__list" aria-label="Useful links">
 									<li class="footer__list-item">
 										<a class="footer__list-link" href="#">Privacy Policy</a>
 									</li>
@@ -438,17 +437,18 @@
 										<a class="footer__list-link" href="#">Contact Us</a>
 									</li>
 								</ul>									
-							</div>
+							</nav>
 						</section>
 						<section class="footer__col">
 							<h2 class="footer__heading">Subscribe</h2>
 							<form class="form" action="#">
 								<div class="form__input-group">
+								<label for="email" class="visually-hidden">Email</label>
 								<input class="input" type="email" name="email" id="email" placeholder="Email">
 								<button class="btn btn_primary">Subscribe</button>
 								</div>
 								<div class="form__input-group">
-									<input class="checkbox" type="checkbox" name="agree" id="agree">I agree to give you all my data
+									<input class="checkbox" type="checkbox" name="agree" id="agree"><label for="agree" class="visually-hidden">I agree to give you all my data</label>
 								</div>
 
 							</form>
