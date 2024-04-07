@@ -65,10 +65,10 @@
 							<h1 class="product-card__title" id="productName">White unisex t-shirt</h1>
 							<p class="product-card__price">EUR 40</p>
 							<p class="product-card__infolabel">Tax included</p>
-							<form class="product-card__form" action="#" aria-label="Buy product">
+							<div class="product-card__form">
 								<div class="product-card__parameter">
-									<div class="product-card__label">Size</div>
-									<select class="product-size">
+									<label for="product_size" class="product-card__label">Size</label>
+									<select class="product-size" id="product_size" name="size">
 										<option value="xs">XS</option>
 										<option value="s">S</option>
 										<option value="m">M</option>
@@ -76,15 +76,23 @@
 										<option value="xl">XL</option>
 									</select>
 									<a class="size-guide-link modal-target" href="#sizeGuide">Size Guide</a>
-									<div class="modal">
+									<div
+										class="modal"
+										role="dialog"
+										id="dialog"
+										aria-labelledby="dialog_label"
+										aria-describedby="dialog_desc"
+										aria-modal="true"
+									>
 										<div class="modal-backdrop">
 											<div class="modal-body size-guide">
-												<h3 class="heading-2">Size guide</h3>
-												<p>Some description about the sizes</p>
-												<table class="size-guide__table">
+												<h3 class="heading-2" id="dialog_label">Size guide</h3>
+												<p id="dialog_desc">Some description about the sizes</p>
+												<table class="size-guide__table" aria-labelledby="table_caption">
+													<caption id="table_caption" class="visually-hidden">Sizes comparison</caption>
 													<tr>
-														<td>EU</td>
-														<td>US</td>
+														<th scope="col">EU</th>
+														<th scope="col">US</th>
 													</tr>
 													<tr>
 														<td>36</td>
@@ -103,75 +111,83 @@
 														<td>11</td>
 													</tr>
 												</table>
+												<button id="dialog-close">Close</button>
 											</div>
 										</div>
 
 									</div>
 								</div>
+
 								<fieldset class="product-card__parameter">
 									<legend class="product-card__label">Color<span aria-hidden="true"> - <span id="productColorValue">White</span></span></legend>
-									<ul class="input-group">
-										<li class="input-group__item">
-											<label class="input-radio">
-												<input class="input-radio__input" type="radio" name="product_color" data-name-display="White" value="white" checked aria-hidden="true">
-												<span class="input-radio__visual input-radio-color">
-													<span class="input-radio-color__sample" style="background-color: #ffffff; border: 1px #cccccc solid;"></span>
-												</span>
+
+											<input class="input-radio__input" type="radio" name="product_color" id="radio_1" data-name-display="White" value="white" form="product_form" checked>
+											<label class="input-radio input-radio__visual input-radio-color" for="radio_1">
+												<span class="input-radio-color__sample" style="background-color: #ffffff;"></span>
 											</label>
-										</li>
-										<li class="input-group__item">
-											<label class="input-radio">
-												<input class="input-radio__input" type="radio" name="product_color" data-name-display="Black" value="black" aria-hidden="true">
-												<span class="input-radio__visual input-radio-color">
-													<span class="input-radio-color__sample" style="background-color: #1a1f29;"></span>
-												</span>
+
+											<input class="input-radio__input" type="radio" name="product_color" id="radio_2" data-name-display="Black" value="black" form="product_form">
+											<label class="input-radio input-radio__visual input-radio-color" for="radio_2">
+												<span class="input-radio-color__sample" style="background-color: #1a1f29;"></span>
 											</label>
-										</li>
-										<li class="input-group__item">
-											<label class="input-radio">
-												<input class="input-radio__input" type="radio" name="product_color" data-name-display="Gray" value="gray" aria-hidden="true">
-												<span class="input-radio__visual input-radio-color">
-													<span class="input-radio-color__sample" style="background-color: #aeaeb0;"></span>
-												</span>
+
+											<input class="input-radio__input" type="radio" name="product_color" id="radio_3" data-name-display="Gray" value="gray" form="product_form">
+											<label class="input-radio input-radio__visual input-radio-color" for="radio_3">
+												<span class="input-radio-color__sample" style="background-color: #aeaeb0;"></span>
 											</label>
-										</li>
-										<li class="input-group__item">
-											<label class="input-radio">
-												<input class="input-radio__input" type="radio" name="product_color" data-name-display="Purple latte" value="purple">
-												<span class="input-radio__visual input-radio-color">
-													<span class="input-radio-color__sample" style="background-color: #ba9be5;"></span>
-												</span>
+
+											<input class="input-radio__input" type="radio" name="product_color" id="radio_4" data-name-display="Purple" value="purple" form="product_form">
+											<label class="input-radio input-radio__visual input-radio-color" for="radio_4">
+												<span class="input-radio-color__sample" style="background-color: #ba9be5;"></span>
 											</label>
-										</li>
-										<li class="input-group__item">
-											<label class="input-radio">
-												<input class="input-radio__input" type="radio" name="product_color" data-name-display="Color 1" value="color1" disabled aria-hidden="true">
-												<span class="input-radio__visual input-radio-color">
-													<span class="input-radio-color__sample" style="background-color: #e9a0a7;"></span>
-												</span>
+
+											<input class="input-radio__input" type="radio" name="product_color" id="radio_5" data-name-display="Pink" value="pink" form="product_form" disabled>
+											<label class="input-radio input-radio__visual input-radio-color" for="radio_5">
+												<span class="input-radio-color__sample" style="background-color: #e9a0a7;"></span>
+												<span class="visually-hidden">Variant sold out or unavailable</span>
 											</label>
-										</li>
-										<li class="input-group__item">
-											<label class="input-radio">
-												<input class="input-radio__input" type="radio" name="product_color" data-name-display="Color 2" value="color2" disabled aria-hidden="true">
-												<span class="input-radio__visual input-radio-color">
-													<span class="input-radio-color__sample" style="background-color: #f8cab1;"></span>
-												</span>
-											</label>												
-										</li>										
-									</ul>										
+
+											<input class="input-radio__input" type="radio" name="product_color" id="radio_6" data-name-display="Orange" value="orange" form="product_form" disabled>
+											<label class="input-radio input-radio__visual input-radio-color" for="radio_6">
+												<span class="input-radio-color__sample" style="background-color: #f8cab1;"></span>
+												<span class="visually-hidden">Variant sold out or unavailable</span>
+											</label>
 								</fieldset>
 								<div class="product-card__parameter product-card__parameter_last">
-									<span class="product-card__label">Quantity</span>
+									<label for="productQuantity" class="product-card__label">Quantity</label>
 									<div class="input-quantity">
-										<button class="input-quantity__btn" data-action="decrease">&minus;</button>
-										<input type="number" class="input-quantity__field" id="productQuantity" name="product_quantity" value="1">
-										<button class="input-quantity__btn" data-action="increase">&plus;</button>
+										<button
+											class="input-quantity__btn"
+											title="Decrement"
+											data-action="decrease"
+										>
+											&minus;
+										</button>
+										<input
+											type="number"
+											class="input-quantity__field"
+											id="productQuantity"
+											name="product_quantity"
+											value="1"
+											aria-invalid="false"
+											max="100"
+											min="1"
+											pattern="[0-9]*"
+											step="1"
+										>
+										<button
+											class="input-quantity__btn"
+											data-action="increase"
+											title="Increment"
+										>&plus;</button>
 									</div>
 								</div>
-								<button class="btn btn_secondary btn_hollow">Add to cart</button>
-								<button class="btn btn_primary">Buy it now</button>
-							</form>
+								<form method="post" action="#" novalidate="novalidate">
+									<button class="btn btn_secondary btn_hollow" type="submit" name="add">Add to cart</button>
+									<button class="btn btn_primary" type="submit" name="buy now">Buy it now</button>
+								</form>
+
+							</div>
 							<section class="product-card__description" aria-label="Product description">
 								<p>A unisex basic garment with a loose fit. Light and comfortable to your skin.</p>
 								<p>Certification of cotton - GOTS</p>
@@ -183,22 +199,63 @@
 							</div>
 							<div class="accordion" aria-label="Product info">
 								<div class="accordion__item">
-									<h3 id="productInfo1" aria-label="Sizing & Fit">
-										<button aria-controls="productInfo1Body" class="accordion__item-title" >Sizing & Fit</button>
-									</h3>
-									<div class="accordion__item-body">Olga is 175cm, she is wearing a size S.</div>
+									<h2>
+										<button
+											aria-expanded="false"
+											aria-controls="productInfo1Body"
+											id="productInfo1"
+											class="accordion__item-title"
+										>
+											Sizing & Fit
+										</button>
+									</h2>
+									<div
+										id="productInfo1Body"
+										role="region"
+										class="accordion__item-body"
+										aria-labelledby="productInfo1">
+										<p>Olga is 175cm, she is wearing a size S.</p>
+									</div>
 								</div>
 								<div class="accordion__item">
-									<h3 id="productInfo2" aria-label="Composition & Care">
-										<button aria-controls="productInfo2Body" class="accordion__item-title">Composition & Care</button>
-									</h3>
-									<div class="accordion__item-body" id="productInfoBody2">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</div>
+									<h2>
+										<button
+											aria-expanded="false"
+											aria-controls="productInfo2Body"
+											id="productInfo2"
+											class="accordion__item-title"
+										>
+											Composition & Care
+										</button>
+									</h2>
+									<div
+										id="productInfo2Body"
+										role="region"
+										class="accordion__item-body"
+										aria-labelledby="productInfo2"
+									>
+										Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+									</div>
 								</div>
-								<div class="accordion__item" aria-label="Delivery & Returns">
-									<h3>
-										<button type="button" aria-controls="productInfo3Body" class="accordion__item-title">Delivery & Returns</button>
-									</h3>
-									<div class="accordion__item-body" id="productInfo3Body" aria-labelledby="productInfo3">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur</div>
+								<div class="accordion__item">
+									<h2>
+										<button
+											area-expanded="false"
+											aria-controls="productInfo3Body"
+											id="productInfo3"
+											class="accordion__item-title"
+										>
+											Delivery & Returns
+										</button>
+									</h2>
+									<div
+										id="productInfo3Body"
+										role="region"
+										class="accordion__item-body"
+										aria-labelledby="productInfo3"
+									>
+										Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur
+									</div>
 								</div>
 							</div>
 						</div>
@@ -213,89 +270,89 @@
 
 					<div class="section products-similar">
 						<h2 class="heading-2 products-similar__heading-2">You may also like</h2>
-						<div class="products-grid">
-							<div class="products-grid__item">
-								<a href="#" tabindex="-1" class="products-grid__item-photo" aria-hidden="true">
-									<img src="images/photo2.jpg" class="products-grid__item-picture" srcset="images/photo2_x2.jpg 2x" alt="">
+						<ul class="products-grid">
+							<li class="products-grid__item">
+								<a href="#" class="products-grid__item-photo">
+									<img src="images/photo2.jpg" class="products-grid__item-picture" srcset="images/photo2_x2.jpg 2x" alt="Product name">
 								</a>
 								<div class="products-grid__item-name"><a href="#">Product name</a></div>
-								<div class="colors-palette products-grid__item-colors-palette">
-									<div class="colors-palette__item">
+								<ul class="colors-palette products-grid__item-colors-palette" aria-label="Available colors">
+									<li class="colors-palette__item">
 										<span class="colors-palette__sample" style="background-color: #C88252;" aria-label="orange">
 										</span>
-									</div>
-									<div class="colors-palette__item">
+									</li>
+									<li class="colors-palette__item">
 										<span class="colors-palette__sample" style="background-color: #e04acc;" aria-label="pink">
 										</span>
-									</div>
-									<div class="colors-palette__item">
+									</li>
+									<li class="colors-palette__item">
 										<span class="colors-palette__sample" style="background-color: #292fad;" aria-label="blue">
 										</span>
-									</div>
-									<div class="colors-palette__item">
+									</li>
+									<li class="colors-palette__item">
 										<span class="colors-palette__sample" style="background-color: #68da00;" aria-label="green">
 										</span>
-									</div>
-								</div>
+									</li>
+								</ul>
 								<p class="products-grid__item-price">
 									EUR 40
 								</p>
-							</div>
-							<div class="products-grid__item">
-								<a href="#" tabindex="-1" class="products-grid__item-photo" aria-hidden="true">
-									<img src="images/photo3.jpg" class="products-grid__item-picture" srcset="images/photo3_x2.jpg 2x" alt="">
+							</li>
+							<li class="products-grid__item">
+								<a href="#" class="products-grid__item-photo">
+									<img src="images/photo3.jpg" class="products-grid__item-picture" srcset="images/photo3_x2.jpg 2x" alt="Very long product name for testing purposes">
 								</a>
 								<div class="products-grid__item-name"><a href="#">Very long product name for testing purposes</a></div>
-								<div class="colors-palette products-grid__item-colors-palette">
-									<div class="colors-palette__item">
+								<ul class="colors-palette products-grid__item-colors-palette"  aria-label="Available colors">
+									<li class="colors-palette__item">
 										<span class="colors-palette__sample" style="background-color: red;" aria-label="red">
 										</span>
-									</div>
-									<div class="colors-palette__item">
+									</li>
+									<li class="colors-palette__item">
 										<span class="colors-palette__sample" style="background-color: green;" aria-label="green">
 										</span>
-									</div>
-									<div class="colors-palette__item">
+									</li>
+									<li class="colors-palette__item">
 										<span class="colors-palette__sample" style="background-color: blue;" aria-label="blue">
 										</span>
-									</div>
-								</div>
+									</li>
+								</ul>
 								<p class="products-grid__item-price">
 									EUR 40
 								</p>
-							</div>
-							<div class="products-grid__item">
-								<ul class="product-tags products-grid__item-product-tags">
-									<li class="product-tags__item">Sold out</li>
-								</ul>
-								<a href="#" tabindex="-1" class="products-grid__item-photo" aria-hidden="true">
-									<img src="images/photo4.jpg" class="products-grid__item-picture" srcset="images/photo4_x2.jpg 2x">
+							</li>
+							<li class="products-grid__item">
+								<div class="product-tags products-grid__item-product-tags">
+									<div class="product-tags__item"><p>Sold out</p></div>
+								</div>
+								<a href="#" class="products-grid__item-photo">
+									<img src="images/photo4.jpg" class="products-grid__item-picture" srcset="images/photo4_x2.jpg 2x" alt="Product name">
 								</a>
 								<div class="products-grid__item-name"><a href="#">Product name</a></div>
-								<div class="colors-palette products-grid__item-colors-palette">
-									<div class="colors-palette__item">
+								<ul class="colors-palette products-grid__item-colors-palette"  aria-label="Available colors">
+									<li class="colors-palette__item">
 										<span class="colors-palette__sample" style="background-color: #C88252;" aria-label="orange">
 										</span>
-									</div>
-									<div class="colors-palette__item">
+									</li>
+									<li class="colors-palette__item">
 										<span class="colors-palette__sample" style="background-color: #e04acc;" aria-label="pink">
 										</span>
-									</div>
-									<div class="colors-palette__item">
+									</li>
+									<li class="colors-palette__item">
 										<span class="colors-palette__sample" style="background-color: #292fad;" aria-label="blue">
 										</span>
-									</div>
-									<div class="colors-palette__item">
+									</li>
+									<li class="colors-palette__item">
 										<span class="colors-palette__sample" style="background-color: #68da00;" aria-label="green">
 										</span>
-									</div>
-								</div>
+									</li>
+								</ul>
 								<p class="products-grid__item-price">
 									EUR 40
 								</p>
-							</div>
+							</li>
 
-						</div>						
+						</ul>
 					</div>
 				</div>
 			</main>
@@ -304,30 +361,32 @@
 				<div class="container footer__container">
 					<div class="footer__columns">
 						<section class="footer__col">
-							<h4 class="footer__heading">About</h4>
+							<h2 class="footer__heading">About</h2>
 							<div class="footer__address">
 								<p>Susparsa Store</p>
 								<p>Geneva, Switzerland</p>
 								<ul class="social" aria-label="Our social accounts">
 									<li class="social__item">
 										<a class="social__link" href="#" target="_blank" aria-label="Facebook">
-											<svg class="social__logo" width="10" height="20" viewBox="0 0 10 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+											<svg aria-hidden="true" class="social__logo" width="10" height="20" viewBox="0 0 10 20" fill="none" xmlns="http://www.w3.org/2000/svg">
 												<path fill-rule="evenodd" clip-rule="evenodd" d="M9.02694 9.9817H6.42882V19.5H2.49245V9.9817H0.6203V6.63659H2.49245V4.47193C2.49245 2.92396 3.22776 0.5 6.46386 0.5L9.37967 0.512199V3.7592H7.26406C6.91704 3.7592 6.42908 3.93258 6.42908 4.671V6.63971H9.37084L9.02694 9.9817Z" fill="#5E626B"/>
 											</svg>
+											<span class="visually-hidden">Facebook</span>
 										</a>
 									</li>							
 									<li class="social__item">
 										<a class="social__link" href="#" target="_blank" aria-label="Instagram">
-											<svg class="social__logo" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+											<svg aria-hidden="true" class="social__logo" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
 												<path d="M14.7071 0.5C17.3502 0.5 19.5 2.65013 19.5 5.29293V14.7071C19.5 17.3502 17.3502 19.5 14.7071 19.5H5.29293C2.65013 19.5 0.5 17.3502 0.5 14.7071V5.29293C0.5 2.65013 2.65013 0.5 5.29293 0.5H14.7071ZM14.7071 2.56779H5.29293C3.7903 2.56779 2.56779 3.7903 2.56779 5.29293V14.7071C2.56779 16.2097 3.7903 17.4326 5.29293 17.4326H14.7071C16.2097 17.4326 17.4326 16.21 17.4326 14.7071V5.29293C17.4326 3.7903 16.21 2.56779 14.7071 2.56779ZM10 5.10678C12.6984 5.10678 14.8936 7.30195 14.8936 10C14.8936 12.698 12.698 14.8936 10 14.8936C7.30195 14.8936 5.10678 12.6984 5.10678 10C5.10678 7.30195 7.30195 5.10678 10 5.10678ZM10 7.17456C8.44247 7.17456 7.17421 8.44212 7.17421 9.99965C7.17421 11.5579 8.44247 12.8258 10 12.8258C11.5582 12.8258 12.8254 11.5579 12.8254 9.99965C12.8254 8.44247 11.5579 7.17456 10 7.17456ZM15.0509 3.80297C15.6892 3.80297 16.2086 4.32238 16.2086 4.96073C16.2086 5.59909 15.6892 6.1185 15.0509 6.1185C14.4122 6.1185 13.8928 5.59909 13.8928 4.96073C13.8928 4.32238 14.4122 3.80297 15.0509 3.80297Z" fill="#5E626B"/>
 											</svg>
+											<span class="visually-hidden">Instagram</span>
 										</a>
 									</li>
 								</ul>
 							</div>
 						</section>
 						<section class="footer__col">
-							<h4 class="footer__heading">Company</h4>
+							<h2 class="footer__heading">Company</h2>
 							<nav aria-label="Footer primary">
 								<ul class="footer__list">
 									<li class="footer__list-item">
@@ -349,7 +408,7 @@
 							</nav>
 						</section>
 						<section class="footer__col">
-							<h4 class="footer__heading">Useful links</h4>
+							<h2 class="footer__heading">Useful links</h2>
 							<div>
 								<ul class="footer__list">
 									<li class="footer__list-item">
@@ -371,14 +430,14 @@
 							</div>
 						</section>
 						<section class="footer__col">
-							<h4 class="footer__heading">Subscribe</h4>
+							<h2 class="footer__heading">Subscribe</h2>
 							<form class="form" action="#">
 								<div class="form__input-group">
 								<input class="input" type="email" name="email" id="email" placeholder="Email">
 								<button class="btn btn_primary">Subscribe</button>
 								</div>
 								<div class="form__input-group">
-									<input class="checkbox" type="checkbox" name="agree" id="agree"> I agree to give you all my data
+									<input class="checkbox" type="checkbox" name="agree" id="agree">I agree to give you all my data
 								</div>
 
 							</form>
