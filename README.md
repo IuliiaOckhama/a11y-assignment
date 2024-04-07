@@ -1,7 +1,10 @@
 ## Accessibility assigment
 Alma mater: [Accessibility Unity](https://accessibilityunity.com/en/)
+
 Website link: https://iuliiaockhama.github.io/a11y-assignment/
+
 TG contact link: [@enemorrian](https://t.me/enemorrian)
+
 
 ### 🐻 Implemented Accessibility Improvements:
 1) Semantic HTML Fixation:
