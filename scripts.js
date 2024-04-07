@@ -52,9 +52,27 @@ window.addEventListener("DOMContentLoaded", () => {
     });
   });
 
+  const modalCloseButton = document.getElementById('dialog-close');
+  modalCloseButton.addEventListener('click', (e) => {
+    const modalWindow = e.target.closest('.modal');
+    modalWindow.classList.remove('show-modal');
+  });
+
   const showModal = (modalWindow) => {
     modalWindow.classList.add('show-modal');
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        modalWindow.classList.remove('show-modal');
+      }
+    }, false);
   }
 
-
+  document.body.addEventListener("focus", (event) => {
+    const modalWindow = document.querySelector('.modal');
+    if (modalWindow && !modalWindow.contains(event.target)) {
+      event.preventDefault();
+      event.stopPropagation();
+      modalCloseButton.focus();
+    }
+  }, {capture: true});
 })
